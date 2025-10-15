@@ -1,0 +1,7 @@
+baseURL = "/"
+languageCode = "en"
+title = "Fareedopia"
+theme = ""
+paginate = 10
+[markup.goldmark.renderer]
+unsafe = true
