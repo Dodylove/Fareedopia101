@@ -1,0 +1,12 @@
+{{ partial "head.html" . }}
+<body>
+<header><h1><a href="/">{{ .Site.Title }}</a></h1><nav><a href="/posts">Blog</a> <a href="/admin/">Write</a></nav></header>
+<main>
+<article>
+  <h2>{{ .Title }}</h2>
+  <p><small>{{ .Date.Format "2006-01-02" }} — {{ with .Params.author }}By {{ . }}{{ end }}</small></p>
+  <div class="content">{{ .Content }}</div>
+</article>
+</main>
+</body>
+</html>
