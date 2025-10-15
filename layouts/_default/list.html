@@ -1,0 +1,13 @@
+{{ partial "head.html" . }}
+<body>
+<header><h1>{{ .Site.Title }}</h1><nav><a href="/">Home</a> <a href="/posts">Blog</a> <a href="/admin/">Write</a></nav></header>
+<main>
+<h2>{{ .Title }}</h2>
+<ul>
+  {{ range .Paginator.Pages }}
+    <li><a href="{{ .RelPermalink }}">{{ .Title }}</a> — <small>{{ .Date.Format "2006-01-02" }}</small></li>
+  {{ end }}
+</ul>
+</main>
+</body>
+</html>
