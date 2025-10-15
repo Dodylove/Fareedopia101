@@ -1,0 +1,21 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "static/uploads"
+public_folder: "/uploads"
+
+publish_mode: editorial_workflow   # adds Draft/Review/Publish
+
+collections:
+  - name: "posts"
+    label: "Posts"
+    folder: "content/posts"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {name: "title", label: "Title"}
+      - {name: "date", label: "Date", widget: "datetime"}
+      - {name: "author", label: "Author"}
+      - {name: "tags", label: "Tags", widget: "list", default: ["general"]}
+      - {name: "body", label: "Body", widget: "markdown"}
