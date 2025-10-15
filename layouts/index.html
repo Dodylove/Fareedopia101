@@ -1,0 +1,19 @@
+{{ partial "head.html" . }}
+<body>
+<header><h1>{{ .Site.Title }}</h1><nav><a href="/posts">Blog</a> <a href="/admin/">Write</a></nav></header>
+<main>
+<section>
+  <h2>About</h2>
+  <p>A knowledge hub for medicine, philosophy, neuroscience, and more.</p>
+</section>
+<section>
+  <h2>Latest</h2>
+  <ul>
+    {{ range first 5 (where .Site.RegularPages "Section" "posts") }}
+      <li><a href="{{ .RelPermalink }}">{{ .Title }}</a> — <small>{{ .Date.Format "2006-01-02" }}</small></li>
+    {{ end }}
+  </ul>
+</section>
+</main>
+</body>
+</html>
