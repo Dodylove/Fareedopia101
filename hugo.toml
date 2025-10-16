@@ -1,6 +1,8 @@
 baseURL = "/"
 title = "Fareedopia"
-paginate = 10
+[pagination]
+  pagerSize = 10
+
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = true
 
