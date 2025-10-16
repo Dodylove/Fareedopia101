@@ -1,7 +1,16 @@
 baseURL = "/"
-languageCode = "en"
 title = "Fareedopia"
 paginate = 10
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = true
+
+[languages]
+  [languages.en]
+    languageName = "English"
+    weight = 1
+  [languages.ar]
+    languageName = "العربية"
+    weight = 2
 
 [minify]
   disableCSS = false
@@ -10,6 +19,6 @@ paginate = 10
   disableJSON = false
   disableSVG = false
   disableXML = false
-  
+
 [markup.goldmark.renderer]
 unsafe = true
