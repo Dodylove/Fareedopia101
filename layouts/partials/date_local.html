@@ -1,0 +1,9 @@
+{{- $p := .P -}}
+{{- $lang := .Site.Language.Lang -}}
+{{- $m := $p.Date.Month | int -}}
+{{- if eq $lang "ar" -}}
+  {{- $months := slice "يناير" "فبراير" "مارس" "أبريل" "مايو" "يونيو" "يوليو" "أغسطس" "سبتمبر" "أكتوبر" "نوفمبر" "ديسمبر" -}}
+  {{- printf "%d %s %d" ($p.Date.Day) (index $months (sub $m 1)) ($p.Date.Year) -}}
+{{- else -}}
+  {{- $p.Date.Format "02 Jan 2006" -}}
+{{- end -}}
