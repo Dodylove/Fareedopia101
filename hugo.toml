@@ -1,18 +1,9 @@
 baseURL = "/"
-title = "Fareedopia"
+languageCode = "ar"
+title = "فريدوبيا"
+
 [pagination]
   pagerSize = 10
-
-defaultContentLanguage = "en"
-defaultContentLanguageInSubdir = true
-
-[languages]
-  [languages.en]
-    languageName = "English"
-    weight = 1
-  [languages.ar]
-    languageName = "العربية"
-    weight = 2
 
 [minify]
   disableCSS = false
