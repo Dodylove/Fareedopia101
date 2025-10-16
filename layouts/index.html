@@ -2,29 +2,22 @@
 <body>
 <header>
   <div class="header-inner">
-    <a class="brand" href="/{{ .Site.LanguagePrefix }}/">Fareedopia</a>
+    <a class="brand" href="/">{{ .Site.Title }}</a>
     <nav>
-      <a href="/{{ .Site.LanguagePrefix }}/posts/">{{ if eq .Site.Language.Lang "ar" }}المدونة{{ else }}Blog{{ end }}</a>
-      <a href="/admin/">{{ if eq .Site.Language.Lang "ar" }}اكتب{{ else }}Write{{ end }}</a>
+      <a href="/posts/">المدونة</a>
+      <a href="/admin/">اكتب</a>
     </nav>
-    <div class="langswitch">
-      {{ range .Sites }}
-        {{ if ne .Language.Lang $.Site.Language.Lang }}
-          <a class="btn" href="/{{ .LanguagePrefix }}/">{{ .Language.LanguageName }}</a>
-        {{ end }}
-      {{ end }}
-    </div>
   </div>
 </header>
 
 <main>
   <section class="card">
-    <h2>{{ if eq .Site.Language.Lang "ar" }}عن فريدوبيا{{ else }}About{{ end }}</h2>
-    <p>{{ if eq .Site.Language.Lang "ar" }}مركز معرفة للطب والفلسفة والإبداع.{{ else }}A knowledge hub for medicine, philosophy, and creation.{{ end }}</p>
+    <h2>عن فريدوبيا</h2>
+    <p>مركز معرفة للطب والفلسفة والإبداع.</p>
   </section>
 
   <section style="margin-block:16px">
-    <h2>{{ i18n "latest" | default (cond (eq .Site.Language.Lang "ar") "الأحدث" "Latest") }}</h2>
+    <h2>الأحدث</h2>
     <div class="grid">
       {{ range first 6 (where .Site.RegularPages "Section" "posts") }}
       <article class="card">
@@ -40,5 +33,5 @@
   </section>
 </main>
 
-<footer><small>© {{ now.Year }} Fareedopia</small></footer>
+<footer><small>© {{ now.Year }} {{ .Site.Title }}</small></footer>
 </body></html>
