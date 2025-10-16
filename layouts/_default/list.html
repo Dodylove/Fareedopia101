@@ -1,13 +1,30 @@
 {{ partial "head.html" . }}
 <body>
-<header><h1>{{ .Site.Title }}</h1><nav><a href="/">Home</a> <a href="/posts">Blog</a> <a href="/admin/">Write</a></nav></header>
+<header>
+  <div class="header-inner">
+    <a class="brand" href="/{{ .Site.LanguagePrefix }}/">Fareedopia</a>
+    <nav>
+      <a href="/{{ .Site.LanguagePrefix }}/posts/">{{ if eq .Site.Language.Lang "ar" }}المدونة{{ else }}Blog{{ end }}</a>
+      <a href="/admin/">{{ if eq .Site.Language.Lang "ar" }}اكتب{{ else }}Write{{ end }}</a>
+    </nav>
+    <div class="langswitch">
+      {{ range .Sites }}{{ if ne .Language.Lang $.Site.Language.Lang }}<a class="btn" href="/{{ .LanguagePrefix }}/">{{ .Language.LanguageName }}</a>{{ end }}{{ end }}
+    </div>
+  </div>
+</header>
+
 <main>
-<h2>{{ .Title }}</h2>
-<ul>
-  {{ range .Paginator.Pages }}
-    <li><a href="{{ .RelPermalink }}">{{ .Title }}</a> — <small>{{ .Date.Format "2006-01-02" }}</small></li>
-  {{ end }}
-</ul>
+  <h2>{{ .Title }}</h2>
+  <div class="grid">
+    {{ range .Paginator.Pages }}
+      <article class="card">
+        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+        <div class="meta">{{ partial "date_local.html" (dict "P" . "Site" $.Site) }} · {{ with .Params.author }}{{ . }}{{ end }}</div>
+        <p>{{ .Summary | plainify | truncate 160 }}</p>
+      </article>
+    {{ end }}
+  </div>
 </main>
-</body>
-</html>
+
+<footer><small>© {{ now.Year }} Fareedopia</small></footer>
+</body></html>
