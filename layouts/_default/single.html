@@ -2,24 +2,13 @@
 <body>
 <header>
   <div class="header-inner">
-    <a class="brand" href="/{{ .Site.LanguagePrefix }}/">Fareedopia</a>
+    <a class="brand" href="/">فريدوبيا</a>
     <nav>
-      <a href="/{{ .Site.LanguagePrefix }}/posts/">{{ if eq .Site.Language.Lang "ar" }}المدونة{{ else }}Blog{{ end }}</a>
-      <a href="/admin/">{{ if eq .Site.Language.Lang "ar" }}اكتب{{ else }}Write{{ end }}</a>
+      <a href="/posts/">المدونة</a>
+      <a href="/admin/">اكتب</a>
     </nav>
-    <div class="langswitch">
-      {{ range .Sites }}{{ if ne .Language.Lang $.Site.Language.Lang }}<a class="btn" href="/{{ .LanguagePrefix }}/">{{ .Language.LanguageName }}</a>{{ end }}{{ end }}
-    </div>
   </div>
 </header>
-
-<main>
-  <article class="content">
-    <h1>{{ .Title }}</h1>
-    <p class="meta">{{ partial "date_local.html" (dict "P" . "Site" $.Site) }} · {{ with .Params.author }}{{ . }}{{ end }}</p>
-    {{ .Content }}
-  </article>
-</main>
-
-<footer><small>© {{ now.Year }} Fareedopia</small></footer>
+<main>…</main>
+<footer><small>© {{ now.Year }} فريدوبيا</small></footer>
 </body></html>
