@@ -2,5 +2,14 @@ baseURL = "/"
 languageCode = "en"
 title = "Fareedopia"
 paginate = 10
+
+[minify]
+  disableCSS = false
+  disableHTML = false
+  disableJS = false
+  disableJSON = false
+  disableSVG = false
+  disableXML = false
+  
 [markup.goldmark.renderer]
 unsafe = true
