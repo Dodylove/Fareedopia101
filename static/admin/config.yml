@@ -1,26 +1,21 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: DODYLOVE/fareedopia101
   branch: main
 
 media_folder: "static/uploads"
 public_folder: "/uploads"
 publish_mode: editorial_workflow
 
-i18n:
-  structure: multiple_folders        # content/en, content/ar
-  locales: [en, ar]
-  default_locale: en
-
 collections:
-  - name: "posts"
-    label: "Posts"
-    i18n: true
-    folder: "content/{{locale}}/posts"
+  - name: posts
+    label: التدوينات
+    folder: "content/posts"
     create: true
     slug: "{{slug}}"
     fields:
-      - { name: "title",  label: "Title",                i18n: true }
-      - { name: "date",   label: "Date",  widget: datetime }
-      - { name: "author", label: "Author",              i18n: true }
-      - { name: "tags",   label: "Tags",  widget: list, i18n: true, default: ["عام"] }
-      - { name: "body",   label: "Body",  widget: markdown, i18n: true }
+      - { name: title,  label: العنوان }
+      - { name: date,   label: التاريخ, widget: datetime }
+      - { name: author, label: الكاتب }
+      - { name: tags,   label: الوسوم, widget: list, default: ["عام"] }
+      - { name: body,   label: المحتوى, widget: markdown }
