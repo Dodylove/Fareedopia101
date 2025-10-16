@@ -1,7 +1,36 @@
-*{box-sizing:border-box}body{margin:0;font-family:system-ui,Arial,sans-serif;line-height:1.7}
-header{padding:14px 16px;border-bottom:1px solid #ddd;position:sticky;top:0;background:#fff}
-nav a{margin-right:12px;text-decoration:none}
-main{max-width:900px;margin:24px auto;padding:0 16px}
-h1,h2{margin:16px 0}
-.content p{margin:12px 0}
-ul{padding-left:18px}
+:root{
+  --bg:#ffffff;--fg:#121212;--muted:#666;--border:#e6e6e6;--accent:#0aa574;
+  --radius:14px;--wrap:960px
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#0b0b0b;--fg:#e8e8e8;--muted:#9aa;--border:#222}
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.7 Inter,Tajawal,system-ui,Arial,sans-serif}
+[dir="rtl"] body{font-family:Tajawal,Inter,system-ui,Arial,sans-serif}
+a{color:var(--accent);text-decoration:none}
+img{max-inline-size:100%;block-size:auto}
+header{position:sticky;top:0;background:var(--bg);border-block-end:1px solid var(--border);padding-block:12px}
+.header-inner{max-inline-size:var(--wrap);margin-inline:auto;padding-inline:16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{font-weight:700}
+nav{display:flex;gap:12px;flex-wrap:wrap}
+main{max-inline-size:var(--wrap);margin-inline:auto;padding:24px 16px}
+footer{border-block-start:1px solid var(--border);padding:16px 16px;color:var(--muted);text-align:center}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+.card{border:1px solid var(--border);border-radius:var(--radius);padding:16px;background:var(--bg)}
+.card h3{margin:0 0 6px 0}
+.meta{color:var(--muted);font-size:.9rem}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin-block:8px}
+.tag{border:1px solid var(--border);padding:2px 8px;border-radius:999px;font-size:.85rem;color:var(--muted)}
+
+.content p{margin-block:12px}
+.content pre{overflow:auto;border:1px solid var(--border);border-radius:10px;padding:12px}
+.content blockquote{border-inline-start:4px solid var(--border);padding-inline:12px;color:var(--muted)}
+
+.langswitch{margin-inline-start:auto;display:flex;gap:8px}
+.btn{border:1px solid var(--border);padding:6px 10px;border-radius:10px;color:var(--fg)}
+.btn:hover{border-color:var(--accent)}
+
+[dir="rtl"] nav{flex-direction:row-reverse}
+[dir="rtl"] .tags{justify-content:flex-start}
